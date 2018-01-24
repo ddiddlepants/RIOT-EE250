@@ -202,6 +202,9 @@ int udp_rx(int argc, char **argv)
         }
 
         /* We received one packet within the interval, lets print the RSSI */
+
+        printf('The number of packets is; %d',i); /* This is a clever way to print packets each loop
+       */
         print_rss(&msg);
 
         /* And count it */
@@ -229,6 +232,8 @@ void print_rss(msg_t *msg)
 
         /**** TO-DO ****/
 
+
+
         /** 
          * gnrc_netif_hdr_t has information about the signal quality. The RSS 
          * value is equal to the RSSI from 'hdr' minus CC2538_RSSI_OFFSET You 
@@ -236,8 +241,16 @@ void print_rss(msg_t *msg)
          * changes to help you finish the lab faster 
         */
 
-        /* Tell GNRC you are done with this packet so it can release the memory */
+        /*  GNRC you are done with this packet so it can release the memory */
+
+        /* First take apart the msg_t into the components we need */
+        printf("The RSSI is; %d\n",hdr->rssi - CC2538_RSSI_OFFSET );
+        /* what is the importance of -> ? */ 
+        /* this is equivalent to (*hdr).rssi (de-referance then access data)*/
+
         gnrc_pktbuf_release(pkt);
+
+        
     }
 }
 
@@ -250,6 +263,7 @@ void print_prr(uint32_t pkt_rcv, uint32_t num_pkts)
      * of packets you actually received. Calculate the Packet Reception Ratio 
      * and print it out 
      */
-    
+
+    printf("The PRR is : %d" (float)pkt_rcv / (float)num_pkts);
 
 }
