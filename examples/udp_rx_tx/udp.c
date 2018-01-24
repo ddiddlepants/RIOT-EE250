@@ -203,7 +203,7 @@ int udp_rx(int argc, char **argv)
 
         /* We received one packet within the interval, lets print the RSSI */
 
-        printf('The number of packets is; %d',i); /* This is a clever way to print packets each loop
+        printf("The number of packets is; %d",i); /* This is a clever way to print packets each loop
        */
         print_rss(&msg);
 
@@ -264,6 +264,6 @@ void print_prr(uint32_t pkt_rcv, uint32_t num_pkts)
      * and print it out 
      */
 
-    printf("The PRR is : %d" (float)pkt_rcv / (float)num_pkts);
+    printf("The PRR is : %d", (float)pkt_rcv / (float)num_pkts);
 
 }
